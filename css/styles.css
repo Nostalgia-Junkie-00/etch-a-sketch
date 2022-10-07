@@ -9,9 +9,18 @@ body {
     height: 100%;
     padding: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+button {
+    padding: 10px 50px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(16, 50px);
