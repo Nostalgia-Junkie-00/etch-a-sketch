@@ -29,6 +29,11 @@ h1 {
     background-color: white;
     overflow: hidden;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(64, 10px); 
+    grid-template-rows: repeat(64, 10px);
+}
 .btn-container {
     width: 640px;
     display: flex;
@@ -44,11 +49,6 @@ button {
     font-weight: bold;
 }
 
-.grid-container {
-    display: grid;
-    /* grid-template-columns: repeat(64, 10px); 
-    grid-template-rows: repeat(64, 10px); */
-}
 .grid-item {
     box-sizing: border-box;
     background-color: blue;
