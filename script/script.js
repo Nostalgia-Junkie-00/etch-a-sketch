@@ -10,15 +10,20 @@ const clearBtn = document.querySelector('.clear');
 let color = 'black';
 
 function getColor() {
-    if(color === 'black'){
-        return 'black'
-    }else if (color === 'rainbow'){
-        let red = Math.floor(Math.random() * 256);
-        let blue = Math.floor(Math.random() * 256);
-        let green = Math.floor(Math.random() * 256);
-        
-        return `rgb(${red}, ${blue}, ${green})`  
-    }  
+    switch (color) {
+        case 'black':
+            return 'black';
+            break;
+        case 'rainbow':
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            
+            return `rgb(${red}, ${green}, ${blue})`
+            break;
+        default:
+            return 'black';
+    }
 }
 
 blackBtn.addEventListener('click', () => {
@@ -84,5 +89,3 @@ function clearGrid() {
 }
 
 clearBtn.addEventListener('click', clearGrid);
-
-//Add ra
