@@ -1,12 +1,11 @@
 //Get elements
 const pad = document.querySelector('.pad');
-const gridContainer = document.querySelector('.grid-container');
+let gridContainer = document.querySelector('.grid-container');
+const sizeBtn = document.querySelector('.size');
 const clearBtn = document.querySelector('.clear');
 
 //Fill grid container with grid items
-let width = 64;
-let height = 64;
-let wXh = width * height;
+let wXh = 4096;
 
 function fillGrid() {
     for (let i = 1; i <= wXh; i++){
@@ -20,6 +19,31 @@ function fillGrid() {
 }
 
 fillGrid();
+//Set the size of the grid
+function setGridSize() {
+    let size = prompt("Enter dimension number: ");
+    let pixel = (64 * 10) / size;
+    if (size > 64){
+        alert("Error, size cannot exceed 64 pixels. Please enter a smaller value.");
+    } else {
+        //Remove initial grid
+        gridContainer.remove();
+
+        //Create a new grid;
+        const newGrid = document.createElement('div');
+        newGrid.className = 'grid-container';
+        newGrid.style.display = 'grid';
+        newGrid.setAttribute('style', `grid-template-columns: repeat(${size}, ${pixel}px); grid-template-rows: repeat(${size}, ${pixel}px)`);
+        gridContainer = newGrid;
+        pad.appendChild(gridContainer);
+
+        //Fill grid
+        wXh = Math.pow(size, 2);
+        fillGrid();
+    }
+}
+
+sizeBtn.addEventListener('click', setGridSize);
 
 //Clear the grid
 function clearGrid() {
