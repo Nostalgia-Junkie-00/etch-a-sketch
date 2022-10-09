@@ -1,8 +1,33 @@
 //Get elements
 const pad = document.querySelector('.pad');
 let gridContainer = document.querySelector('.grid-container');
+const blackBtn = document.querySelector('.black');
+const rainbowBtn = document.querySelector('.rainbow');
 const sizeBtn = document.querySelector('.size');
 const clearBtn = document.querySelector('.clear');
+
+//Color changer function
+let color = 'black';
+
+function getColor() {
+    if(color === 'black'){
+        return 'black'
+    }else if (color === 'rainbow'){
+        let red = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        
+        return `rgb(${red}, ${blue}, ${green})`  
+    }  
+}
+
+blackBtn.addEventListener('click', () => {
+    color = 'black';
+})
+
+rainbowBtn.addEventListener('click', () => {
+    color = 'rainbow';
+})
 
 //Fill grid container with grid items
 let wXh = 4096;
@@ -12,7 +37,7 @@ function fillGrid() {
         const gridItem = document.createElement('div');
         gridItem.className = 'grid-item';
         gridItem.addEventListener('mouseover', () => {
-            gridItem.style.backgroundColor = 'black';
+            gridItem.style.backgroundColor = getColor();
         })
         gridContainer.appendChild(gridItem);
     }
@@ -60,3 +85,4 @@ function clearGrid() {
 
 clearBtn.addEventListener('click', clearGrid);
 
+//Add ra
