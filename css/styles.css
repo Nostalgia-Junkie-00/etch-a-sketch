@@ -50,7 +50,6 @@ button {
 }
 .grid-item {
     box-sizing: border-box;
-    background-color: white;
-    border: 0.1rem solid black;    
+    background-color: white;  
 }
 
