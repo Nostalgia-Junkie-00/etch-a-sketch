@@ -1,6 +1,7 @@
-//Get the drawing pad and grid container
+//Get elements
 const pad = document.querySelector('.pad');
 const gridContainer = document.querySelector('.grid-container');
+const clearBtn = document.querySelector('.clear');
 
 //Fill grid container with grid items
 let width = 64;
@@ -19,3 +20,18 @@ function fillGrid() {
 }
 
 fillGrid();
+
+//Clear the grid
+function clearGrid() {
+    const gridItems = document.querySelectorAll('.grid-item');
+    if(gridItems.length === 0){
+        console.log("No items")
+    }else {
+        gridItems.forEach((gridItem) => {
+            gridItem.style.backgroundColor = 'blue';
+        })
+    }
+}
+
+clearBtn.addEventListener('click', clearGrid);
+
