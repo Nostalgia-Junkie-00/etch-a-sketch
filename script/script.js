@@ -12,13 +12,14 @@ function fillGrid() {
         const gridItem = document.createElement('div');
         gridItem.className = 'grid-item';
         gridItem.addEventListener('mouseover', () => {
-            gridItem.style.backgroundColor = 'white';
+            gridItem.style.backgroundColor = 'black';
         })
         gridContainer.appendChild(gridItem);
     }
 }
 
 fillGrid();
+
 //Set the size of the grid
 function setGridSize() {
     let size = prompt("Enter dimension number: ");
@@ -52,7 +53,7 @@ function clearGrid() {
         console.log("No items")
     }else {
         gridItems.forEach((gridItem) => {
-            gridItem.style.backgroundColor = 'blue';
+            gridItem.style.backgroundColor = 'white';
         })
     }
 }
